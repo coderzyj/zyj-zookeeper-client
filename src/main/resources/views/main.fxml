@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saitama.controller.MainController">
+   <children>
+      <MenuBar fx:id="menuBar" layoutY="2.0" prefHeight="25.0" prefWidth="600.0" style="-fx-background-insets: 0;">
+        <menus>
+          <Menu mnemonicParsing="false" text="文件">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="导入" />
+              </items>
+            <items>
+              <MenuItem mnemonicParsing="false" text="关闭" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="编辑">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="帮助">
+            <items>
+              <MenuItem mnemonicParsing="false" text="关于..." />
+            </items>
+          </Menu>
+        </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </MenuBar>
+      <Pane layoutY="27.0" prefHeight="50.0" prefWidth="594.0" style="-fx-background-color: whitesmoke">
+         <children>
+            <Button fx:id="button" mnemonicParsing="false" prefHeight="50.0" prefWidth="52.0" style="-fx-background-image: url('../icon/connect.png');              -fx-background-size: 35px;-fx-background-insets: 0;" text="">
+<!--               <graphic>-->
+<!--                  <ImageView fitHeight="37.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" >-->
+<!--                      <Image url="../icon/connect.png"></Image>-->
+<!--                  </ImageView>-->
+<!--               </graphic>-->
+            </Button>
+         </children>
+      </Pane>
+      <HBox layoutY="77.0" prefHeight="323.0" prefWidth="600.0">
+         <children>
+            <Pane prefHeight="323.0" prefWidth="165.0">
+               <children>
+                  <TreeView fx:id="treeView" layoutY="4.0" prefHeight="317.0" prefWidth="165.0" >
+                  </TreeView>
+               </children>
+            </Pane>
+            <Pane prefHeight="323.0" prefWidth="434.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
