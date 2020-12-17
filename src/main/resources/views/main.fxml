@@ -37,7 +37,8 @@
       </MenuBar>
       <Pane layoutY="27.0" prefHeight="50.0" prefWidth="594.0" style="-fx-background-color: whitesmoke">
          <children>
-            <Button fx:id="button" mnemonicParsing="false" prefHeight="50.0" prefWidth="52.0" style="-fx-background-image: url('../icon/connect.png');              -fx-background-size: 35px;-fx-background-insets: 0;" text="">
+            <Button fx:id="button" mnemonicParsing="false" prefHeight="50.0" prefWidth="52.0" style="-fx-background-image: url('../icon/connect.png');              -fx-background-size: 35px;-fx-background-insets: 0;" text=""
+            onAction="#createConnection">
 <!--               <graphic>-->
 <!--                  <ImageView fitHeight="37.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" >-->
 <!--                      <Image url="../icon/connect.png"></Image>-->

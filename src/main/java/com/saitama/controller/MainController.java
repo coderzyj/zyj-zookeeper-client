@@ -1,5 +1,6 @@
 package com.saitama.controller;
 
+import com.saitama.view.AddConnectionView;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +11,9 @@ import javafx.scene.control.TreeView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,6 +35,9 @@ public class MainController implements Initializable {
     @FXML
     private TreeView treeView;
 
+    @Autowired
+    private AddConnectionView addConnectionView;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         menuBar.prefWidthProperty().bind(pane.widthProperty());
@@ -50,5 +57,14 @@ public class MainController implements Initializable {
         treeView.prefHeightProperty().bind(pane.heightProperty());
     }
 
+    public void createConnection(){
+        System.out.println("111");
 
+//        Stage stage = new Stage();
+//
+//
+//        stage.initStyle(StageStyle.DECORATED);
+//        stage.showAndWait();
+        addConnectionView.show();
+    }
 }
