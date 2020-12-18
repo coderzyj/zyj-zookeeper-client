@@ -1,5 +1,6 @@
 package com.saitama.controller;
 
+import cn.hutool.core.collection.CollectionUtil;
 import com.saitama.view.AddConnectionView;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.fxml.FXML;
@@ -16,7 +17,9 @@ import javafx.stage.StageStyle;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 /**
  * @author : zhangyongjie
@@ -51,20 +54,28 @@ public class MainController implements Initializable {
         TreeItem<String> item = new TreeItem<>("/",new ImageView(new Image(getClass().getResourceAsStream("/icon/dictionary.png"))));
         treeView.setRoot(item);
 
-        TreeItem<String> item1 = new TreeItem<>("dubbo",new ImageView(new Image(getClass().getResourceAsStream("/icon/dictionary.png"))));
-        TreeItem<String> item2 = new TreeItem<>("provider",new ImageView(new Image(getClass().getResourceAsStream("/icon/dictionary.png"))));
-        item.getChildren().addAll(item1,item2);
+//        TreeItem<String> item1 = new TreeItem<>("dubbo",new ImageView(new Image(getClass().getResourceAsStream("/icon/dictionary.png"))));
+//        TreeItem<String> item2 = new TreeItem<>("provider",new ImageView(new Image(getClass().getResourceAsStream("/icon/dictionary.png"))));
+//        item.getChildren().addAll(item1,item2);
         treeView.prefHeightProperty().bind(pane.heightProperty());
     }
 
     public void createConnection(){
-        System.out.println("111");
-
-//        Stage stage = new Stage();
-//
-//
-//        stage.initStyle(StageStyle.DECORATED);
-//        stage.showAndWait();
         addConnectionView.show();
+    }
+
+
+    public void addNode(List<String>nodes){
+        if(CollectionUtil.isEmpty(nodes)){
+            return;
+        }
+
+        List<TreeItem<String>> items = nodes.stream().map(node -> {
+            TreeItem<String> item = new TreeItem<>(node, new ImageView(new Image(getClass().getResourceAsStream("/icon/dictionary.png"))));
+            return item;
+        }).collect(Collectors.toList());
+
+        TreeItem treeItem = treeView.getTreeItem(0);
+        treeItem.getChildren().addAll(items);
     }
 }

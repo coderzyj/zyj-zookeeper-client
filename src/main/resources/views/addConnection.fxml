@@ -23,9 +23,9 @@
             <Label prefHeight="42.0" prefWidth="120.0" text="Host:" GridPane.rowIndex="1" />
             <Label prefHeight="43.0" prefWidth="56.0" text="Port:" GridPane.rowIndex="2" />
             <Label prefHeight="51.0" prefWidth="76.0" text="Timeout:" GridPane.rowIndex="3" />
-            <TextField prefHeight="42.0" prefWidth="442.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField prefHeight="42.0" prefWidth="451.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField prefHeight="43.0" prefWidth="336.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="host" prefHeight="42.0" prefWidth="442.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="port" prefHeight="42.0" prefWidth="451.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="timeout" prefHeight="43.0" prefWidth="336.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label prefHeight="40.0" prefWidth="51.0" text=" (毫秒)" GridPane.columnIndex="2" GridPane.rowIndex="3" />
          </children>
       </GridPane>
@@ -34,12 +34,12 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button contentDisplay="TOP" layoutX="287.0" layoutY="324.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="90.0" text="确定">
+      <Button contentDisplay="TOP" layoutX="287.0" layoutY="324.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="90.0" text="确定" onAction="#doCreate">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="416.0" layoutY="324.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="90.0" text="取消">
+      <Button layoutX="416.0" layoutY="324.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="90.0" text="取消" onAction="#cancel">
          <font>
             <Font size="15.0" />
          </font>
