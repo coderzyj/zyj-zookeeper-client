@@ -35,9 +35,12 @@ public class SaitaimaApplication extends AbstractJavaFxApplicationSupport {
         stage.setTitle("地下城与勇士");
 //        ClassPathResource resource = new ClassPathResource("icon/dnf.png");
         stage.getIcons().addAll(new Image(getClass().getResourceAsStream("/icon/dnf.png")));
-//        stage.setWidth(1920);
-//        stage.setHeight(1000);
-        stage.setFullScreen(true);
+        Scene scene = stage.getScene();
+        JMetro jMetro = new JMetro(Style.DARK);
+        jMetro.setScene(scene);
+        stage.setScene(scene);
+        stage.setWidth(800);
+        stage.setHeight(600);
         super.start(stage);
     }
 }

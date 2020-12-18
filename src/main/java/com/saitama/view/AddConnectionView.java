@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import jfxtras.styles.jmetro.JMetro;
 
 import javax.annotation.PostConstruct;
 
@@ -29,6 +30,8 @@ public class AddConnectionView  extends AbstractFxmlView {
         Platform.runLater(()->{
             stage = new Stage();
             Scene scene  = new Scene(pane);
+            JMetro jMetro = new JMetro();
+            jMetro.setScene(scene);
             stage.setScene(scene);
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);

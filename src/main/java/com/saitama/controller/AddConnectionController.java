@@ -1,17 +1,22 @@
 package com.saitama.controller;
 
+import com.saitama.core.Node;
 import com.saitama.core.ZkConnectionManager;
 import com.saitama.util.DialogUtil;
 import com.saitama.view.AddConnectionView;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * @author: zyj
@@ -20,7 +25,7 @@ import java.util.List;
  */
 @FXMLController
 @Slf4j
-public class AddConnectionController {
+public class AddConnectionController implements Initializable {
     @Autowired
     private AddConnectionView addConnectionView;
     @FXML
@@ -31,6 +36,7 @@ public class AddConnectionController {
 
     @FXML
     private TextField timeout;
+
 
     @Autowired
     private ZkConnectionManager zkConnectionManager;
@@ -65,11 +71,19 @@ public class AddConnectionController {
         }
 
         try {
-            List<String> allNode = zkConnectionManager.getAllNode();
-            System.out.println(allNode);
-            mainController.addNode(allNode);
+
+            Node node = new Node();
+            node.setName("/");
+            node.setPath("/");
+            zkConnectionManager.getNodes(node);
+            mainController.addAllNode(null,node);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }
